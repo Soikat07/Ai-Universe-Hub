@@ -1,8 +1,9 @@
 import React from 'react';
 
 const SingleCard = (props) => {
-  const { name, image, published_in, features } = props.card;
-  console.log(props.card)
+  
+  const { name, image, published_in, features, id } = props.card;
+  
   return (
     <div>
       <div className="card w-full h-full bg-base-100 shadow-2xl">
@@ -20,6 +21,7 @@ const SingleCard = (props) => {
           <h1 className="font-bold text-2xl">{name}</h1>
           <div className="flex justify-between">
             <div className="flex">
+              {/* date icon svg */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -37,7 +39,12 @@ const SingleCard = (props) => {
               {published_in}
             </div>
             <div>
-              <button className="btn btn-circle btn-outline hover:btn-info">
+              {/* modal click button */}
+              <label
+                onClick={()=>props.setUniqueId(id)}
+                htmlFor="my-modal-5"
+                className="btn btn-circle btn-outline hover:btn-info"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -52,7 +59,7 @@ const SingleCard = (props) => {
                     d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
                   />
                 </svg>
-              </button>
+              </label>
             </div>
           </div>
         </div>
